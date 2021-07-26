@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const ColorControls = ({ colors, onColorChange, randomColor }) => {
+const ColorControls = ({ colors, onColorChange }) => {
   return (
     <>
       {colors.map(color => (
@@ -17,14 +17,8 @@ const ColorControls = ({ colors, onColorChange, randomColor }) => {
   );
 };
 
-
-
-
-
-
-
 ColorControls.propTypes = {
-  color: PropTypes.arrayOf(PropTypes.string).isRequired,
+  colors: PropTypes.arrayOf(PropTypes.string).isRequired,
   onColorChange: PropTypes.func.isRequired,
 };
 

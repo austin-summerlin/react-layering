@@ -4,7 +4,7 @@ import ColorDisplay from '../components/color-picker/ColorDisplay';
 
 export default class ColorPicker extends Component {
   state = {
-    selectedColor: 'red',
+    selectedColor: '#ffffff',
   };
 
   handleColorChange = (color) => {
@@ -12,13 +12,15 @@ export default class ColorPicker extends Component {
   };
 
   render() {
-    const colors = ['red', 'yellow', 'blue'];
+    const randomColor = '#' + Math.floor(Math.random() * 16777215).toString(16);
+    const colors = [randomColor];
     const { selectedColor } = this.state;
+
 
     return (
       <>
         <ColorControls colors={colors} onColorChange={this.handleColorChange} />
-        <ColorDisplay backgroundColor={selectedColor} />
+        <ColorDisplay backgroundColor={selectedColor, randomColor} />
       </>
     );
   }

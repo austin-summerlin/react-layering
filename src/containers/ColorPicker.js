@@ -1,16 +1,17 @@
+/* eslint-disable max-len */
 import React, { Component } from 'react';
 import ColorControls from '../components/color-picker/ColorControls';
 import ColorDisplay from '../components/color-picker/ColorDisplay';
 
 export default class ColorPicker extends Component {
   state = {
-    selectedColor: '#ffffff',
+    selectedColor: '#000000',
   };
 
   componentDidMount() {
     this.interval = setInterval(() => {
       this.setState({
-        selectedColor: '#' + Math.floor(Math.random() * 16777215).toString(16),
+        selectedColor: '#' + (Math.random().toString(16) + '000000').substring(2, 8),
       });
     }, 1000);
   }
@@ -19,10 +20,13 @@ export default class ColorPicker extends Component {
     this.setState({ selectedColor: color });
   };
 
+
+
   render() {
-    const randomColor = '#' + Math.floor(Math.random() * 16777215).toString(16);
+    const randomColor = '#' + (Math.random().toString(16) + '000000').substring(2, 8);
     const colors = [randomColor];
     const { selectedColor } = this.state;
+
 
 
     return (
@@ -33,3 +37,5 @@ export default class ColorPicker extends Component {
     );
   }
 }
+
+

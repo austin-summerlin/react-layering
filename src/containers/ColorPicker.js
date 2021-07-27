@@ -7,6 +7,14 @@ export default class ColorPicker extends Component {
     selectedColor: '#ffffff',
   };
 
+  componentDidMount() {
+    this.interval = setInterval(() => {
+      this.setState({
+        selectedColor: '#' + Math.floor(Math.random() * 16777215).toString(16),
+      });
+    }, 1000);
+  }
+
   handleColorChange = (color) => {
     this.setState({ selectedColor: color });
   };
